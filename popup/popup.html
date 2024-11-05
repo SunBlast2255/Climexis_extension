@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Atmosynx</title>
+</head>
+<body>
+    <div class="header">
+        <div class="header-item">
+            <img draggable="false" class="logo-img" src="../img/UI/logo.png">
+            <span class="logo-text">Atmosynx</span>
+        </div>
+
+        <div class="header-item">
+            <img draggable="false" class="icon-small" src="../img/UI/settings.png" title="Settings" id="settings">
+        </div>
+    </div>
+
+        <div class="main">
+            <div class="main-info">
+                <div class="flex center" style="gap:5px;">
+                    <img draggable="false" class="icon-big" src="../img/weather/sun.png" id="condition">
+                    <div class="flex column bold mid">
+                        <span id="city" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 165px;">City</span>
+                        <span id="country" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 165px;">Country</span>
+                    </div>
+                </div>
+
+                <div class="flex column center">
+                    <span class="bold large" id="temp">0°</span>
+                    <span class="small"><span id="max">0°</span>/<span id="min">0°</span>, feels like <span id="feels-like">0°</span> </span>
+                </div>
+
+                <div class="flex center column">
+                    <span class="mid bold">Wind:</span>
+                    <span class="big bold"><span id="speed">0 kph</span>, <span id="dir">N</span></span> 
+                </div>
+            </div>
+
+            <div class="forecast-block" id="forecastBlock">
+                <!--Forecast will appear here-->   
+            </div>
+
+            <div class="astro">
+                <div class="astro-block">
+                    <div class="flex center column" style="align-items: start;">
+                        <span>Susrise: <span id="sunrise">12:00</span></span>
+                        <span>Sunset: <span id="sunset">12:00</span></span>
+                    </div>
+
+                    <div class="flex center column">
+                        <img class="icon-mid" src="../img/weather/sun.png">
+                    </div>
+                </div>
+
+                <div class="astro-block">
+                    <div class="flex center column" style="align-items: start;">
+                        <span>Moonrise: <span id="moonrise">12:00</span></span>
+                        <span>Moonset: <span id="moonset">12:00</span></span>
+                    </div>
+
+                    <div class="flex center">
+                        <img class="icon-mid" src="../img/weather/moon.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="adv-info">
+                <div class="small-block">
+                    <span class="big" id="humidity">0 %</span>
+                    <span>Humidity</span>
+                </div>
+                <div class="small-block">
+                    <span class="mid" id="pressure">0 mb</span>
+                    <span>Pressure</span>
+                </div>
+                <div class="small-block">
+                    <span class="big" id="rainfall">0 mm</span>
+                    <span>Precipitation</span>
+                </div>
+                <div class="small-block">
+                    <span class="mid" id="time">12:00</span>
+                    <span>Time</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="settings-modal">
+            <div class="modal-header">
+                <div class="header-item">
+                    <img draggable="false" class="logo-img" src="../img/UI/logo.png">
+                    <span class="logo-text">Atmosynx</span>
+                </div>
+            </div>
+
+            <div class="modal-main flex column center">
+                <div style="margin-top: 15px;">
+                    <h1 class="bold">Settings</h1>
+                </div>
+
+                <div class="flex center column" style="gap: 10px;">
+                    <div class="flex settings-item">
+                        <div style="width: 35%;">
+                            <span class="mid bold">City:</span>  
+                        </div>
+                        <div style="width: 65%;">
+                            <input type="text" id="cityInput">
+                        </div>
+                    </div>
+                    <div class="flex settings-item">
+                        <div style="width: 35%;">
+                            <span class="mid bold">Unit:</span>      
+                        </div>
+                        <div style="width: 65%;">
+                            <select id="unit">
+                                <option>Metric</option>
+                                <option>Imperial</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex settings-item">
+                        <div style="width: 35%;">
+                            <span class="mid bold">Time:</span>
+                        </div>
+                        <div style="width: 65%;">
+                            <select id="time-format">
+                                <option>24-hour</option>
+                                <option>12-hour</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button id="apply">Apply</button>
+                </div>
+
+                <div class="about">
+                    <span>Atmosynx 1.0</span>
+                    <span class="pointer" id="weatherapi-link">Powered by weatherapi.com</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="setup-modal">
+            <div class="modal-header">
+                <div class="header-item">
+                    <img draggable="false" class="logo-img" src="../img/UI/logo.png">
+                    <span class="logo-text">Atmosynx</span>
+                </div>
+            </div>
+
+            <div class="center modal-main">
+                
+                <div class="flex center column" style="gap: 5px; margin-top: 15px;">
+                    <h1 class="bold">Welcome!</h1>
+                    <h2>Let's customize your extension!</h2>
+                </div>
+                
+                <div class="flex center column" style="gap: 10px;">
+                    <div class="flex settings-item">
+                        <div style="width: 35%;">
+                            <span class="mid bold">City:</span>  
+                        </div>
+                        <div style="width: 65%;">
+                            <input type="text" id="city-setup">
+                        </div>
+                    </div>
+                    <div class="flex settings-item">
+                        <div style="width: 35%;">
+                            <span class="mid bold">Unit:</span>      
+                        </div>
+                        <div style="width: 65%;">
+                            <select id="unit-setup">
+                                <option>Metric</option>
+                                <option>Imperial</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex settings-item">
+                        <div style="width: 35%;">
+                            <span class="mid bold">Time:</span>
+                        </div>
+                        <div style="width: 65%;">
+                            <select id="time-format-setup">
+                                <option>24-hour</option>
+                                <option>12-hour</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button id="done">Done!</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="loading-modal">
+            <div class="modal-header">
+                <div class="header-item">
+                    <img draggable="false" class="logo-img" src="../img/UI/logo.png">
+                    <span class="logo-text">Atmosynx</span>
+                </div>
+            </div>
+
+            <div class="center modal-main">
+                
+                <div class="flex center column" style="gap: 5px; margin-top: 15px;">
+                    <h1 class="bold">Loading</h1>
+                    <h2>Please wait</h2>
+                </div>
+    
+            </div>
+        </div>
+
+        <div class="modal" id="error-modal">
+            <div class="modal-header">
+                <div class="header-item">
+                    <img draggable="false" class="logo-img" src="../img/UI/logo.png">
+                    <span class="logo-text">Atmosynx</span>
+                </div>
+            </div>
+
+            <div class="center modal-main">
+                
+                <div class="flex center column" style="gap: 5px; margin-top: 15px;">
+                    <h1 class="bold">Something went wrong</h1>
+                    <h2>Make sure the city is correct in the settings, or try again later</h2>
+                    <button id="settings-btn-error">Settings</button>
+                </div>
+    
+            </div>
+        </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

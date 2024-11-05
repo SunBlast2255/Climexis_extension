@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "Atmosynx",
+    "description": "Weather forecast right in the browser extension",
+    "version": "1.0",
+    "action": {
+      "default_popup": "popup/popup.html"
+    },
+    "permissions": [
+        "storage",
+        "tabs"
+    ],
+    "icons": {
+      "16": "img/icons/16.png",
+      "32": "img/icons/32.png",
+      "48": "img/icons/48.png",
+      "64": "img/icons/64.png",
+      "128": "img/icons/128.png"
+    },
+    "background": {
+      "service_worker": "js/background.js"
+    }
+  }
